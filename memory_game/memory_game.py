@@ -18,7 +18,7 @@ class UserInterface:
     def __init__(self):
         # creating main windonw and adding the title
         self.__root = Tk()
-        self.__root.title("Muistipeli")
+        self.__root.title("Memory game")
 
         # defining images as objects
         self.__screwdriver_pic = PhotoImage(file = "screwdriver.png")
@@ -49,9 +49,9 @@ class UserInterface:
         shuffle(self.__picture_list)
 
         # creating start and stop buttons
-        self.__start_button = Button(self.__root, text = "Uusi peli",
+        self.__start_button = Button(self.__root, text = "New game",
                                     command = self.new_game)
-        self.__stop_button = Button(self.__root, text = "Lopeta peli",
+        self.__stop_button = Button(self.__root, text = "Exit",
                                     command = self.stop)
 
         # creating buttons for cards
@@ -186,7 +186,7 @@ class UserInterface:
         """
         Stops the execution of the program.
         """
-        answer = messagebox.askquestion(title=None, message="Haluatko varmasti lopettaa pelin?")
+        answer = messagebox.askquestion(title=None, message="Are you sure you want to exit the game?")
 
         if answer == "yes":
             self.__root.destroy()
@@ -195,7 +195,7 @@ class UserInterface:
         """
         Starts new game.
         """
-        answer = messagebox.askquestion(title=None, message="Haluatko varmasti aloittaa uuden pelin?")
+        answer = messagebox.askquestion(title=None, message="Are you sure you want to start a new game?")
 
         if answer == "yes":
             python = sys.executable
