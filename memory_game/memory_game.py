@@ -163,15 +163,37 @@ class UserInterface:
                 self.__answer_list = []
                 self.__button_list = []
 
+                # chancing picture to the pressed card and disabling the button
+                # so that the same button cannot be pressed more than once
+                button.configure(image = self.__picture_list[number])
+                button["state"] = DISABLED
+
+                # adding the pressed button to the list and the picture in
+                # the card to another list
+                self.__button_list.append(button)
+                self.__answer_list.append(button["image"])
+                self.__click_count += 1
+
             else:
                 # turning the buttons over if they aren't a pair
-                for button in self.__button_list:
-                    self.turn_over(button)
+                for card in self.__button_list:
+                    self.turn_over(card)
 
                 # resetting the lists and clicker counter
                 self.__answer_list = []
                 self.__button_list = []
-                self.__click_count = 0 
+                self.__click_count = 0
+
+                # chancing picture to the pressed card and disabling the button
+                # so that the same button cannot be pressed more than once
+                button.configure(image = self.__picture_list[number])
+                button["state"] = DISABLED
+
+                # adding the pressed button to the list and the picture in
+                # the card to another list
+                self.__button_list.append(button)
+                self.__answer_list.append(button["image"])
+                self.__click_count += 1
               
 
     def turn_over(self, button):
